@@ -123,7 +123,6 @@
 				4B7AFB6C074D3197F9B23F5E /* Pods-ChallengeLibreTests.debug.xcconfig */,
 				139050BFFF439D97128AD93E /* Pods-ChallengeLibreTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -184,8 +183,8 @@
 		91095E3C284AECB2003E8180 /* SearchProduct */ = {
 			isa = PBXGroup;
 			children = (
+				91C458F5284DB47400AB6F25 /* Model */,
 				91095E45284AF920003E8180 /* Views */,
-				91095E53284B927D003E8180 /* ProductModel.swift */,
 				91095E41284AED00003E8180 /* SearchProductView.storyboard */,
 				91095E3F284AECF2003E8180 /* SearchProductViewController.swift */,
 				91095E55284B929A003E8180 /* SearchProductViewModel.swift */,
@@ -229,6 +228,14 @@
 				91095E51284AFEAD003E8180 /* ListProductViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		91C458F5284DB47400AB6F25 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				91095E53284B927D003E8180 /* ProductModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		ED2C602DCEEA952F00A4CC6D /* Frameworks */ = {
