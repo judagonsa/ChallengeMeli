@@ -9,24 +9,22 @@ import UIKit
 
 class SearchProductViewController: UIViewController, UISearchBarDelegate, UITextViewDelegate {
 
-    //Components search
+    //Components search view
     @IBOutlet weak var txtSearch: UISearchBar!
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var iconShoppingCar: UIButton!
     @IBOutlet weak var stackViewAddressData: UIStackView!
+    
+    @IBOutlet weak var viewQuantitySearch: UIView!
+    @IBOutlet weak var labelQuantitySearch: UILabel!
     
     @IBOutlet weak var stackDataView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureGradientView()
         configureSearchView()
         
-    }
-    
-    func configureGradientView() {
-    
     }
     
     func configureSearchView() {
@@ -63,6 +61,10 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         let controller = storyBoard.instantiateViewController(withIdentifier: "DetailProductViewController") as! DetailProductViewController
         
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnFilterAction(_ sender: Any) {
+        showDefaultAlert(title: "Atención", message: "Acción de filtrar en desarrollo", view: self)
     }
 }
 
