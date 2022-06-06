@@ -179,8 +179,42 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vB-Im-frp">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="705"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yFm-SB-XdA">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="178" translatesAutoresizingMaskIntoConstraints="NO" id="yFm-SB-XdA">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="705"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNZ-Bd-jrQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="705"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKd-rk-F0B">
+                                                                <rect key="frame" x="146" y="342.5" width="122.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="hKd-rk-F0B" firstAttribute="centerY" secondItem="KNZ-Bd-jrQ" secondAttribute="centerY" id="ho4-vt-6Xc"/>
+                                                            <constraint firstItem="hKd-rk-F0B" firstAttribute="centerX" secondItem="KNZ-Bd-jrQ" secondAttribute="centerX" id="tKr-ni-6ZR"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmj-co-cwP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tabla de busquedas recientes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zef-3K-gqw">
+                                                                <rect key="frame" x="95" y="-10" width="224.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="zef-3K-gqw" firstAttribute="centerX" secondItem="zmj-co-cwP" secondAttribute="centerX" id="fOj-Qj-UlM"/>
+                                                            <constraint firstItem="zef-3K-gqw" firstAttribute="centerY" secondItem="zmj-co-cwP" secondAttribute="centerY" id="plL-ed-Cbd"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -226,7 +260,9 @@
                         <outlet property="stackDataView" destination="yFm-SB-XdA" id="ulf-BR-ose"/>
                         <outlet property="stackViewAddressData" destination="2jK-9u-6TY" id="sOw-Uw-qnk"/>
                         <outlet property="txtSearch" destination="oep-LZ-Vs9" id="6yg-Ht-Y9w"/>
+                        <outlet property="viewDashboard" destination="KNZ-Bd-jrQ" id="40L-en-19r"/>
                         <outlet property="viewQuantitySearch" destination="9nb-5D-1eY" id="5bv-xb-KKO"/>
+                        <outlet property="viewRecentSearches" destination="zmj-co-cwP" id="hRf-bB-uSn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLX-TU-mSK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

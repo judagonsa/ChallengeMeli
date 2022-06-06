@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchProductViewController: UIViewController, UISearchBarDelegate, UITextViewDelegate {
-
+    
     //Components search view
     @IBOutlet weak var txtSearch: UISearchBar!
     @IBOutlet weak var btnCancel: UIButton!
@@ -19,11 +19,23 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
     @IBOutlet weak var labelQuantitySearch: UILabel!
     
     @IBOutlet weak var stackDataView: UIStackView!
+    @IBOutlet weak var viewDashboard: UIView!
+    @IBOutlet weak var viewRecentSearches: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureSearchView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewDashboard.isHidden = false
+        viewRecentSearches.isHidden = true
+        viewQuantitySearch.isHidden = true
+        
         
     }
     
@@ -31,6 +43,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         btnCancel.isHidden = true
         iconShoppingCar.isHidden = false
         txtSearch.delegate = self
+        
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -38,12 +51,23 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
             iconShoppingCar.isHidden = true
             btnCancel.isHidden = false
             stackViewAddressData.isHidden = true
+            
+            viewDashboard.isHidden = true
+            viewRecentSearches.isHidden = false
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar == txtSearch {
             print("dio en buscar: \(txtSearch.text!)")
+            iconShoppingCar.isHidden = false
+            btnCancel.isHidden = true
+            txtSearch.endEditing(true)
+            
+            viewDashboard.isHidden = true
+            viewRecentSearches.isHidden = true
+            viewQuantitySearch.isHidden = false
+            
         }
     }
     
@@ -53,8 +77,11 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         btnCancel.isHidden = true
         stackViewAddressData.isHidden = false
         txtSearch.endEditing(true)
+        
+        viewDashboard.isHidden = false
+        viewRecentSearches.isHidden = true
     }
-   
+    
     @IBAction func btnIconCar(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "DetailProductView", bundle: nil)
         
