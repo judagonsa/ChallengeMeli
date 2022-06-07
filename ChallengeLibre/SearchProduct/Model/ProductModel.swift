@@ -44,6 +44,7 @@ class ProductModel {
         let acceptsMercadopago: Bool?
         let installments: installmentsData?
         let shipping: shippingData?
+        let imageListProduct: String?
         
         enum codingKeys: String, CodingKey {
             case paging = "paging"
@@ -60,6 +61,7 @@ class ProductModel {
             case acceptsMercadopago = "accepts_mercadopago"
             case installments = "installments"
             case shipping = "shipping"
+            case imageListProduct = "thumbnail"
         }
         
         init(from decoder: Decoder) throws {
@@ -96,6 +98,7 @@ class ProductModel {
             }
             
             shipping = try values.decodeIfPresent(shippingData.self, forKey: .shipping)
+            imageListProduct = try values.decodeIfPresent(String.self, forKey: .imageListProduct)
         }
     }
     

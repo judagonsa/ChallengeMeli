@@ -31,6 +31,9 @@ class DetailProductViewController: UIViewController {
     @IBOutlet weak var viewBestSellers: UIView!
     @IBOutlet weak var labelBestSellers: UILabel!
     
+    @IBOutlet weak var collectionImagesProduct: UICollectionView!
+    @IBOutlet weak var labelCountImageProduct: UILabel!
+    
     @IBOutlet weak var viewColorProduct: UIView!
     @IBOutlet weak var labelColor: UILabel!
     
@@ -73,12 +76,21 @@ class DetailProductViewController: UIViewController {
     @IBOutlet weak var btnLearMoreReturn: UIButton!
     
     var detailProduct: ProductModel.Data!
+    var arrayImagesProduct = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureButtons()
-        
+        addImages()
+    }
+    
+    func addImages() {
+        arrayImagesProduct.removeAll()
+        arrayImagesProduct.append(UIImage(named: "yellow")!)
+        arrayImagesProduct.append(UIImage(named: "blue")!)
+        arrayImagesProduct.append(UIImage(named: "red")!)
+        collectionImagesProduct.reloadData()
     }
     
     func configureButtons(){

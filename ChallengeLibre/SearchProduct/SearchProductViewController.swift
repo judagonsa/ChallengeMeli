@@ -88,7 +88,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate {
                 let storyBoard = UIStoryboard(name: "ListProductsView", bundle: nil)
                 let controller = storyBoard.instantiateViewController(withIdentifier: "ListProductsViewController") as! ListProductsViewController
                 controller.txtTitleSearch = self.txtSearch.text!
-                self.present(controller, animated: true, completion: nil)
+                self.present(controller, animated: false, completion: nil)
                 
             }
             
@@ -104,7 +104,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate {
                 let storyBoard = UIStoryboard(name: "ListProductsView", bundle: nil)
                 let controller = storyBoard.instantiateViewController(withIdentifier: "ListProductsViewController") as! ListProductsViewController
                 controller.txtTitleSearch = self.txtSearch.text!
-                self.presentingViewController?.present(controller, animated: true, completion: nil)
+                self.presentingViewController?.present(controller, animated: false, completion: nil)
             }
         }
     }
@@ -112,8 +112,8 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate {
     @IBAction func btnCancelarAction(_ sender: Any) {
         
         if isSearchAgain {
-            
-            self.dismiss(animated: true)
+            isSearchAgain = false
+            self.dismiss(animated: false)
             
         } else {
             txtSearch.text = ""
@@ -130,7 +130,10 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate {
     
     @IBAction func btnIconCar(_ sender: Any) {
         
+        let storyBoard = UIStoryboard(name: "DetailProductView", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "DetailProductViewController") as! DetailProductViewController
         
+        self.present(controller, animated: false, completion: nil)
     }
     
 }
