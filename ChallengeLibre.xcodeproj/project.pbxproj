@@ -30,6 +30,8 @@
 		91095E5A284B93ED003E8180 /* DetailProductView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91095E59284B93ED003E8180 /* DetailProductView.storyboard */; };
 		91095E5C284B9403003E8180 /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91095E5B284B9403003E8180 /* DetailProductViewController.swift */; };
 		91095E5E284BB4EB003E8180 /* dataGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91095E5D284BB4EB003E8180 /* dataGlobal.swift */; };
+		91639EDC284FBCDA00548FA2 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91639EDB284FBCDA00548FA2 /* ApiService.swift */; };
+		91639EDE284FBFB200548FA2 /* LisrProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91639EDD284FBFB200548FA2 /* LisrProductsViewModel.swift */; };
 		91C458F7284ED4CB00AB6F25 /* ImagesDetailProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C458F6284ED4CB00AB6F25 /* ImagesDetailProductCell.swift */; };
 		91C458F9284ED53400AB6F25 /* ImagesDetailProductControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C458F8284ED53400AB6F25 /* ImagesDetailProductControllerCell.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +84,8 @@
 		91095E59284B93ED003E8180 /* DetailProductView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailProductView.storyboard; sourceTree = "<group>"; };
 		91095E5B284B9403003E8180 /* DetailProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
 		91095E5D284BB4EB003E8180 /* dataGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataGlobal.swift; sourceTree = "<group>"; };
+		91639EDB284FBCDA00548FA2 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		91639EDD284FBFB200548FA2 /* LisrProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LisrProductsViewModel.swift; sourceTree = "<group>"; };
 		91C458F6284ED4CB00AB6F25 /* ImagesDetailProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesDetailProductCell.swift; sourceTree = "<group>"; };
 		91C458F8284ED53400AB6F25 /* ImagesDetailProductControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesDetailProductControllerCell.swift; sourceTree = "<group>"; };
 		9D2AC7061A81B9C72E49CED0 /* Pods_ChallengeLibreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChallengeLibreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,9 +203,11 @@
 		91095E3D284AECC5003E8180 /* ListProducts */ = {
 			isa = PBXGroup;
 			children = (
+				91639EDA284FBCC600548FA2 /* ApiService */,
 				91095E4E284AFDF7003E8180 /* Views */,
 				91095E48284AFDB1003E8180 /* ListProductsView.storyboard */,
 				91095E4A284AFDCA003E8180 /* ListProductsViewController.swift */,
+				91639EDD284FBFB200548FA2 /* LisrProductsViewModel.swift */,
 				91095E57284B9367003E8180 /* ListProductsCellController.swift */,
 			);
 			path = ListProducts;
@@ -234,6 +240,14 @@
 				91095E51284AFEAD003E8180 /* ListProductViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		91639EDA284FBCC600548FA2 /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				91639EDB284FBCDA00548FA2 /* ApiService.swift */,
+			);
+			path = ApiService;
 			sourceTree = "<group>";
 		};
 		91C458F5284DB47400AB6F25 /* Model */ = {
@@ -504,10 +518,12 @@
 				91095E0D284AC583003E8180 /* AppDelegate.swift in Sources */,
 				91095E40284AECF2003E8180 /* SearchProductViewController.swift in Sources */,
 				91095E4B284AFDCA003E8180 /* ListProductsViewController.swift in Sources */,
+				91639EDC284FBCDA00548FA2 /* ApiService.swift in Sources */,
 				91095E58284B9367003E8180 /* ListProductsCellController.swift in Sources */,
 				91C458F9284ED53400AB6F25 /* ImagesDetailProductControllerCell.swift in Sources */,
 				91095E54284B927D003E8180 /* ProductModel.swift in Sources */,
 				91C458F7284ED4CB00AB6F25 /* ImagesDetailProductCell.swift in Sources */,
+				91639EDE284FBFB200548FA2 /* LisrProductsViewModel.swift in Sources */,
 				91095E5C284B9403003E8180 /* DetailProductViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

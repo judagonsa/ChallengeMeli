@@ -33,7 +33,7 @@ class ProductModel {
         let paging: pagingData?
         let id: String?
         let siteId: String?
-        let title: String?
+        let titleProduct: String?
         let price: Int?
         let prices: [pricesData]?
         let salePrice: Int?
@@ -50,7 +50,7 @@ class ProductModel {
             case paging = "paging"
             case id = "id"
             case siteId = "site_id"
-            case title = "title"
+            case titleProduct = "title"
             case price = "price"
             case prices = "prices"
             case salePrice = "sale_price"
@@ -74,9 +74,14 @@ class ProductModel {
             
             id = try values.decodeIfPresent(String.self, forKey: .id)
             siteId = try values.decodeIfPresent(String.self, forKey: .siteId)
-            title = try values.decodeIfPresent(String.self, forKey: .title)
+            titleProduct = try values.decodeIfPresent(String.self, forKey: .titleProduct)
             price = try values.decodeIfPresent(Int.self, forKey: .price)
-            prices = try values.decodeIfPresent([pricesData].self, forKey: .prices)
+            
+            do {
+                prices = try values.decodeIfPresent([pricesData].self, forKey: .prices)
+            }catch {
+                prices = nil
+            }
             
             do {
                 salePrice = try values.decodeIfPresent(Int.self, forKey: .salePrice)

@@ -75,7 +75,7 @@ class DetailProductViewController: UIViewController {
     @IBOutlet weak var labelDaysReturn: UILabel!
     @IBOutlet weak var btnLearMoreReturn: UIButton!
     
-    var detailProduct: ProductModel.Data!
+    var detailProduct: ProductModel.dataModel!
     var arrayImagesProduct = [UIImage]()
     
     override func viewDidLoad() {
@@ -96,6 +96,19 @@ class DetailProductViewController: UIViewController {
     func configureButtons(){
         btnLearMoreReturn.layer.borderWidth = 1
         btnLearMoreReturn.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        showInformation()
+        
+    }
+    
+    func showInformation() {
+        
+        
+        
     }
     
     @IBAction func btnBack(_ sender: Any) {

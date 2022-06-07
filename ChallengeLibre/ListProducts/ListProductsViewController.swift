@@ -12,16 +12,38 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var txtSearch: UISearchBar!
     @IBOutlet weak var txtAddressSend: UILabel!
     
-
-    var arrayProducts: [ProductModel.Data] = []
+    @IBOutlet weak var viewQuantityResults: UIView!
+    @IBOutlet weak var labelQuantityResults: UILabel!
+    
+    @IBOutlet weak var collectionListProducts: UICollectionView!
+    
+    private var listProductsViewModel : ListProductsViewModel!
+    var arrayProducts: [ProductModel.dataModel] = []
     var txtTitleSearch = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listProductsViewModel = ListProductsViewModel()
         txtSearch.delegate = self
         txtSearch.text = txtTitleSearch
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewQuantityResults.isHidden = true
+        listProductsViewModel.getSearchProductTxt(txtProduct: txtSearch.text!) { data in
+            
+            self.arrayProducts = data
+            print("actualiza")
+            self.viewQuantityResults.isHidden = false
+            self.labelQuantityResults.text = "\(self.arrayProducts.count) resultados"
+            self.collectionListProducts.reloadData()
+        }
+        
+    }
+    
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if searchBar == txtSearch {
