@@ -107,7 +107,11 @@ class DetailProductViewController: UIViewController {
     }
     
     @IBAction func btnSearchAction(_ sender: Any) {
-        showDefaultAlert(title: "Atención", message: "Acción de buscar en desarrollo", view: self)
+        let storyBoard = UIStoryboard(name: "SearchProductView", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "SearchProductViewController") as! SearchProductViewController
+        controller.txtTitleSearch = ""
+        controller.isSearchAgain = true
+        self.present(controller, animated: false, completion: nil)
     }
     
     @IBAction func btnCarShippingAction(_ sender: Any) {
