@@ -20,7 +20,7 @@
 		91095E42284AED00003E8180 /* SearchProductView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91095E41284AED00003E8180 /* SearchProductView.storyboard */; };
 		91095E44284AF561003E8180 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91095E43284AF561003E8180 /* SearchView.xib */; };
 		91095E47284AF947003E8180 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91095E46284AF947003E8180 /* Search.swift */; };
-		91095E49284AFDB1003E8180 /* ListProducts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91095E48284AFDB1003E8180 /* ListProducts.storyboard */; };
+		91095E49284AFDB1003E8180 /* ListProductsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91095E48284AFDB1003E8180 /* ListProductsView.storyboard */; };
 		91095E4B284AFDCA003E8180 /* ListProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91095E4A284AFDCA003E8180 /* ListProductsViewController.swift */; };
 		91095E4D284AFDF2003E8180 /* ListProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91095E4C284AFDF2003E8180 /* ListProductView.xib */; };
 		91095E52284AFEAD003E8180 /* ListProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91095E51284AFEAD003E8180 /* ListProductViewCell.swift */; };
@@ -70,7 +70,7 @@
 		91095E41284AED00003E8180 /* SearchProductView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchProductView.storyboard; sourceTree = "<group>"; };
 		91095E43284AF561003E8180 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		91095E46284AF947003E8180 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
-		91095E48284AFDB1003E8180 /* ListProducts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListProducts.storyboard; sourceTree = "<group>"; };
+		91095E48284AFDB1003E8180 /* ListProductsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListProductsView.storyboard; sourceTree = "<group>"; };
 		91095E4A284AFDCA003E8180 /* ListProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductsViewController.swift; sourceTree = "<group>"; };
 		91095E4C284AFDF2003E8180 /* ListProductView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListProductView.xib; sourceTree = "<group>"; };
 		91095E51284AFEAD003E8180 /* ListProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductViewCell.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				91095E4E284AFDF7003E8180 /* Views */,
-				91095E48284AFDB1003E8180 /* ListProducts.storyboard */,
+				91095E48284AFDB1003E8180 /* ListProductsView.storyboard */,
 				91095E4A284AFDCA003E8180 /* ListProductsViewController.swift */,
 				91095E57284B9367003E8180 /* ListProductsCellController.swift */,
 			);
@@ -361,7 +361,7 @@
 				91095E44284AF561003E8180 /* SearchView.xib in Resources */,
 				91095E5A284B93ED003E8180 /* DetailProductView.storyboard in Resources */,
 				91095E19284AC586003E8180 /* LaunchScreen.storyboard in Resources */,
-				91095E49284AFDB1003E8180 /* ListProducts.storyboard in Resources */,
+				91095E49284AFDB1003E8180 /* ListProductsView.storyboard in Resources */,
 				91095E42284AED00003E8180 /* SearchProductView.storyboard in Resources */,
 				91095E16284AC586003E8180 /* Assets.xcassets in Resources */,
 			);
