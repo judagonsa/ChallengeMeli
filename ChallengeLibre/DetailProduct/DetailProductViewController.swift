@@ -72,7 +72,8 @@ class DetailProductViewController: UIViewController {
     @IBOutlet weak var labelDaysReturn: UILabel!
     @IBOutlet weak var btnLearMoreReturn: UIButton!
     
-
+    var detailProduct: ProductModel.Data!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
