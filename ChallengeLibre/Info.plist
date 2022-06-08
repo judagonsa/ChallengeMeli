@@ -15,5 +15,9 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>SearchProductView</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>La aplicación Challenge Test solicita permisos de ubicación</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>La aplicación Challenge Test solicita permisos de ubicación</string>
 </dict>
 </plist>

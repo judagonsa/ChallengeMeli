@@ -36,6 +36,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         super.viewWillAppear(animated)
         
         if isSearchAgain {
+            
             txtSearch.text = txtTitleSearch
             txtSearch.becomeFirstResponder()
             
@@ -45,6 +46,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
             
             viewDashboard.isHidden = true
             viewRecentSearches.isHidden = false
+            
         }else{
             
             txtSearch.text = ""
@@ -85,7 +87,6 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar == txtSearch {
             print(searchText)
-            
             filterRecentSearch(product: searchText)
             
         }
@@ -175,11 +176,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
     }
     
     @IBAction func btnIconCar(_ sender: Any) {
-        
-        let storyBoard = UIStoryboard(name: "DetailProductView", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "DetailProductViewController") as! DetailProductViewController
-        
-        self.present(controller, animated: false, completion: nil)
+        showDefaultAlert(title: "Atención", message: "Acción de ver carrito en desarrollo", view: self)
     }
     
 }
