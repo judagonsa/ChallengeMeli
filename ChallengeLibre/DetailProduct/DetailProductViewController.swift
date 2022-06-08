@@ -98,14 +98,46 @@ class DetailProductViewController: UIViewController {
         btnLearMoreReturn.layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showInformation()
-        
     }
     
     func showInformation() {
+        
+        
+        labelAccountSold.text = "\(detailProduct.condition! == "new" ? "Nuevo" : "Usado") | \(detailProduct.soldQuantity!) vendidos"
+        labelNameProduct.text = detailProduct.titleProduct!
+        
+        if detailProduct.prices != nil {
+            
+            if detailProduct.prices!.prices!.count > 1 {
+                
+                viewOriginalPrice.isHidden = false
+                labelDiscountPrice.isHidden = false
+                
+                labelOriginalPrice.text = "$ \(detailProduct.price!)"
+                labelPrice.text = "$ \(detailProduct.prices!.prices![1].amount!)"
+                labelDiscountPrice.text = "\(detailProduct.prices!.prices![1].metadata!.campaignDiscountPercentage!)% OFF"
+                
+            }else {
+                
+                viewOriginalPrice.isHidden = true
+                labelDiscountPrice.isHidden = true
+                
+                labelPrice.text = "$ \(detailProduct.price!)"
+                
+            }
+            
+        }else {
+            labelPrice.text = "$ \(detailProduct.price!)"
+            viewOriginalPrice.isHidden = true
+            labelDiscountPrice.isHidden = true
+        }
+        
+        viewArriveFree.isHidden = !detailProduct.shipping!.freeShipping!
+        
+        labelAvailable.text = "(\(detailProduct.availableQuantity!)) disponibles"
         
         
         

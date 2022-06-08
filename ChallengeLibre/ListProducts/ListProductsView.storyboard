@@ -215,7 +215,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="180" height="430"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6VC-hM-bgV">
-                                                                            <rect key="frame" x="5" y="5" width="170" height="420"/>
+                                                                            <rect key="frame" x="5" y="5" width="170" height="422"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7QL-Cc-l8x">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="170" height="250"/>
@@ -300,10 +300,10 @@
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kpx-9b-uzA">
-                                                                                    <rect key="frame" x="0.0" y="280" width="170" height="65"/>
+                                                                                    <rect key="frame" x="0.0" y="280" width="170" height="67"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sony play station Sony play Sony play station Sony play Sony play station Sony play " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lA9-qJ-QgL">
-                                                                                            <rect key="frame" x="5" y="0.0" width="160" height="65"/>
+                                                                                            <rect key="frame" x="5" y="0.0" width="160" height="67"/>
                                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
@@ -318,7 +318,7 @@
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OX6-lf-znI">
-                                                                                    <rect key="frame" x="0.0" y="350" width="170" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="352" width="170" height="20"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 3.500.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REh-BX-aPh">
                                                                                             <rect key="frame" x="5" y="0.0" width="160" height="20"/>
@@ -337,7 +337,7 @@
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sI4-ve-wSR">
-                                                                                    <rect key="frame" x="0.0" y="375" width="170" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="377" width="170" height="20"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuotas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tis-Aw-H9a">
                                                                                             <rect key="frame" x="5" y="0.0" width="160" height="20"/>
@@ -356,7 +356,7 @@
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXN-lb-b6x">
-                                                                                    <rect key="frame" x="0.0" y="400" width="170" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="402" width="170" height="20"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Envio gratis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFD-2v-XHL">
                                                                                             <rect key="frame" x="5" y="0.0" width="160" height="20"/>
@@ -382,8 +382,6 @@
                                                                         <constraint firstItem="6VC-hM-bgV" firstAttribute="top" secondItem="gPi-cY-kAr" secondAttribute="top" constant="5" id="8pe-Sv-xZu"/>
                                                                         <constraint firstAttribute="trailing" secondItem="6VC-hM-bgV" secondAttribute="trailing" constant="5" id="VCH-Zm-t9k"/>
                                                                         <constraint firstItem="6VC-hM-bgV" firstAttribute="leading" secondItem="gPi-cY-kAr" secondAttribute="leading" constant="5" id="atE-mn-Yxk"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="6VC-hM-bgV" secondAttribute="bottom" constant="5" id="eBe-3D-lBb"/>
-                                                                        <constraint firstAttribute="height" constant="430" id="pVd-JM-Dra"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>

@@ -33,7 +33,7 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewQuantityResults.isHidden = true
-        listProductsViewModel.getSearchProductTxt(txtProduct: txtSearch.text!) { data in
+        listProductsViewModel.getSearchProductTxt(txtProduct: txtSearch.text!.replacingOccurrences(of: " ", with: "-")) { data in
             
             self.arrayProducts = data
             print("actualiza")

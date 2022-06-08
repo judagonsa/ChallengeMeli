@@ -35,7 +35,7 @@ class ProductModel {
         let siteId: String?
         let titleProduct: String?
         let price: Int?
-        let prices: [pricesData]?
+        let prices: pricesData?
         let salePrice: Int?
         let currencyId: String?
         let availableQuantity: Int?
@@ -75,10 +75,15 @@ class ProductModel {
             id = try values.decodeIfPresent(String.self, forKey: .id)
             siteId = try values.decodeIfPresent(String.self, forKey: .siteId)
             titleProduct = try values.decodeIfPresent(String.self, forKey: .titleProduct)
-            price = try values.decodeIfPresent(Int.self, forKey: .price)
             
             do {
-                prices = try values.decodeIfPresent([pricesData].self, forKey: .prices)
+                price = try values.decodeIfPresent(Int.self, forKey: .price)
+            }catch {
+                price = -1
+            }
+            
+            do {
+                prices = try values.decodeIfPresent(pricesData.self, forKey: .prices)
             }catch {
                 prices = nil
             }
@@ -94,7 +99,6 @@ class ProductModel {
             soldQuantity = try values.decodeIfPresent(Int.self, forKey: .soldQuantity)
             condition = try values.decodeIfPresent(String.self, forKey: .condition)
             acceptsMercadopago = try values.decodeIfPresent(Bool.self, forKey: .acceptsMercadopago)
-            
             
             do {
                 installments = try values.decodeIfPresent(installmentsData.self, forKey: .installments)
@@ -130,6 +134,21 @@ class ProductModel {
     }
     
     struct pricesData: Codable {
+       
+        let prices: [pricesArrayData]?
+    
+        enum codingKeys: String, CodingKey {
+            case prices = "prices"
+        }
+        
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: codingKeys.self)
+            prices = try values.decodeIfPresent([pricesArrayData].self, forKey: .prices)
+        }
+        
+    }
+    
+    struct pricesArrayData: Codable {
         let id: String?
         let type: String?
         let amount: Int?
@@ -155,7 +174,6 @@ class ProductModel {
             currencyId = try values.decodeIfPresent(String.self, forKey: .currencyId)
             metadata = try values.decodeIfPresent(metadataData.self, forKey: .metadata)
         }
-        
     }
     
     struct metadataData: Codable {
