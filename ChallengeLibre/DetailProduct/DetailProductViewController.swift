@@ -103,6 +103,8 @@ class DetailProductViewController: UIViewController {
         showInformation()
     }
     
+    
+    /// <#Description#>
     func showInformation() {
         
         

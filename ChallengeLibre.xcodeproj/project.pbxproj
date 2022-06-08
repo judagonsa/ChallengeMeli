@@ -164,8 +164,8 @@
 				91095E3C284AECB2003E8180 /* SearchProduct */,
 				91095E0C284AC583003E8180 /* AppDelegate.swift */,
 				91095E5D284BB4EB003E8180 /* dataGlobal.swift */,
-				91095E15284AC586003E8180 /* Assets.xcassets */,
 				91095E17284AC586003E8180 /* LaunchScreen.storyboard */,
+				91095E15284AC586003E8180 /* Assets.xcassets */,
 				91095E1A284AC586003E8180 /* Info.plist */,
 			);
 			path = ChallengeLibre;
