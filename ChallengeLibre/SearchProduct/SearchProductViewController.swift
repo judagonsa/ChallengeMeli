@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchProductViewController: UIViewController, UISearchBarDelegate {
+class SearchProductViewController: UIViewController, UISearchBarDelegate, UITextViewDelegate {
     
     //Components search view
     @IBOutlet weak var txtSearch: UISearchBar!
@@ -21,6 +21,9 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate {
     
     var isSearchAgain = false
     var txtTitleSearch = ""
+    @IBOutlet weak var tableViewRecentSearchs: UITableView!
+    var recentSearchsArray = [String]()
+    var arrayFilter = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +55,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate {
             
             viewDashboard.isHidden = false
             viewRecentSearches.isHidden = true
-            txtSearch.text = ""
+            
         }
         
     }
@@ -66,12 +69,45 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if searchBar == txtSearch {
+            
             iconShoppingCar.isHidden = true
             btnCancel.isHidden = false
             stackViewAddressData.isHidden = true
             
             viewDashboard.isHidden = true
             viewRecentSearches.isHidden = false
+            
+            getRecentSearch()
+            
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar == txtSearch {
+            print(searchText)
+            
+            filterRecentSearch(product: searchText)
+            
+        }
+    }
+    
+    func filterRecentSearch(product: String) {
+        if txtSearch.text != "" {
+            recentSearchsArray = recentSearchsArray.filter { $0.contains(product) }
+        } else {
+            print("vacio")
+            recentSearchsArray = arrayFilter
+        }
+        
+        tableViewRecentSearchs.reloadData()
+    }
+    
+    func getRecentSearch() {
+        if let array = UserDefaults.standard.object(forKey: "recentSearch") as? [String] {
+            
+            self.recentSearchsArray = array
+            self.arrayFilter = array
+            filterRecentSearch(product: txtSearch.text!)
         }
     }
     
@@ -79,18 +115,28 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate {
         if searchBar == txtSearch {
             print("dio en buscar: \(txtSearch.text!)")
             
-            if isSearchAgain {
-                
-                self.dismiss(animated: false)
-                
-            }else {
-                
-                let storyBoard = UIStoryboard(name: "ListProductsView", bundle: nil)
-                let controller = storyBoard.instantiateViewController(withIdentifier: "ListProductsViewController") as! ListProductsViewController
-                controller.txtTitleSearch = self.txtSearch.text!
-                self.present(controller, animated: false, completion: nil)
-                
-            }
+            searchProduct(product: txtSearch.text!)
+            
+        }
+    }
+    
+    func searchProduct(product: String) {
+        
+        if !recentSearchsArray.contains(product) {
+            recentSearchsArray.append(product)
+            UserDefaults.standard.set(recentSearchsArray, forKey: "recentSearch")
+        }
+        
+        if isSearchAgain {
+            
+            self.dismiss(animated: false)
+            
+        }else {
+            
+            let storyBoard = UIStoryboard(name: "ListProductsView", bundle: nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "ListProductsViewController") as! ListProductsViewController
+            controller.txtTitleSearch = product
+            self.present(controller, animated: false, completion: nil)
             
         }
     }

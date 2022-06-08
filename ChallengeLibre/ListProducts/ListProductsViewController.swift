@@ -16,6 +16,7 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var labelQuantityResults: UILabel!
     
     @IBOutlet weak var collectionListProducts: UICollectionView!
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
     private var listProductsViewModel : ListProductsViewModel!
     var arrayProducts: [ProductModel.dataModel] = []
@@ -28,18 +29,28 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
         txtSearch.delegate = self
         txtSearch.text = txtTitleSearch
         
+        loadingView.isHidden = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewQuantityResults.isHidden = true
+        loadingView.isHidden = false
+        
         listProductsViewModel.getSearchProductTxt(txtProduct: txtSearch.text!.replacingOccurrences(of: " ", with: "-")) { data in
             
             self.arrayProducts = data
-            print("actualiza")
+            
             self.viewQuantityResults.isHidden = false
             self.labelQuantityResults.text = "\(self.arrayProducts.count) resultados"
+            
+            print("actualiza")
             self.collectionListProducts.reloadData()
+            DispatchQueue.main.async(execute: {
+                print("termina de actualizar")
+                self.loadingView.isHidden = true
+                self.collectionListProducts.isHidden = false
+            })
         }
         
     }
