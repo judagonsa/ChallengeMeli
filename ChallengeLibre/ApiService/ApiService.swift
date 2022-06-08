@@ -10,6 +10,11 @@ import Alamofire
 
 class ApiService :  NSObject {
     
+    
+    /// Function request type GET for search products
+    /// - Parameters:
+    ///   - txtProduct: Product to search
+    ///   - completion: Response request decode in model
     func apiGetSearchProduct(txtProduct: String, completion : @escaping (ProductModel.Data) -> ()){
         
         let url = URL(string: "https://api.mercadolibre.com/sites/MLA/search?q=\(txtProduct)")!

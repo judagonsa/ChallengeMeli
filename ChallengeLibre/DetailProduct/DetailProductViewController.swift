@@ -9,10 +9,10 @@ import UIKit
 
 class DetailProductViewController: UIViewController {
     
-    //connectors top view
+    
+    // MARK: IBOutlet detail product view
     @IBOutlet weak var btnFavorite: UIButton!
     
-    //conecctors scroll->view->Stack
     @IBOutlet weak var scrollViewDetail: UIScrollView!
     
     @IBOutlet weak var viewAccountSold: UIView!
@@ -78,6 +78,7 @@ class DetailProductViewController: UIViewController {
     var detailProduct: ProductModel.dataModel!
     var arrayImagesProduct = [UIImage]()
     
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -85,6 +86,8 @@ class DetailProductViewController: UIViewController {
         addImages()
     }
     
+    
+    /// Function add images product default
     func addImages() {
         arrayImagesProduct.removeAll()
         arrayImagesProduct.append(UIImage(named: "yellow")!)
@@ -93,20 +96,21 @@ class DetailProductViewController: UIViewController {
         collectionImagesProduct.reloadData()
     }
     
+    /// Configure buttons view
     func configureButtons(){
         btnLearMoreReturn.layer.borderWidth = 1
         btnLearMoreReturn.layer.borderColor = UIColor.lightGray.cgColor
     }
     
+    // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showInformation()
     }
     
     
-    /// <#Description#>
+    /// Show all available information about detail product
     func showInformation() {
-        
         
         labelAccountSold.text = "\(detailProduct.condition! == "new" ? "Nuevo" : "Usado") | \(detailProduct.soldQuantity!) vendidos"
         labelNameProduct.text = detailProduct.titleProduct!
@@ -145,6 +149,8 @@ class DetailProductViewController: UIViewController {
         
     }
     
+    // MARK: Function buttons, icons and interactions users
+    
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true)
     }
@@ -153,6 +159,8 @@ class DetailProductViewController: UIViewController {
         showDefaultAlert(title: "Atención", message: "Acción de favorito en desarrollo", view: self)
     }
     
+    
+    /// Action when user search a new product, update text in UISearch and update variables for flow interaction user
     @IBAction func btnSearchAction(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "SearchProductView", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "SearchProductViewController") as! SearchProductViewController
@@ -212,6 +220,5 @@ class DetailProductViewController: UIViewController {
     @IBAction func btnReturnAction(_ sender: Any) {
         showDefaultAlert(title: "Atención", message: "Acción de conocer más sobre devoluciones en desarrollo", view: self)
     }
-    
     
 }

@@ -31,6 +31,8 @@ extension ListProductsViewController: UICollectionViewDelegate, UICollectionView
         return cell
     }
 
+    
+    /// Show detail product view selected in collection or list products
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("producto seleccionado: \(arrayProducts[indexPath.row])")
         

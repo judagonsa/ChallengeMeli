@@ -9,6 +9,8 @@ import UIKit
 
 class ListProductsViewController: UIViewController, UISearchBarDelegate {
     
+    //MARK: IBOutlet view
+    
     @IBOutlet weak var txtSearch: UISearchBar!
     @IBOutlet weak var txtAddressSend: UILabel!
     
@@ -22,6 +24,7 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
     var arrayProducts: [ProductModel.dataModel] = []
     var txtTitleSearch = ""
     
+    //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +35,8 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
         loadingView.isHidden = false
     }
     
+    //MARK: ViewWillAppear
+    /// Request search product opening view, conecting with view model replacing space for - and reload table when finish search
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewQuantityResults.isHidden = true
@@ -56,6 +61,7 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
     }
     
     
+    /// Show search product view for user begin editing field UISearchText
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if searchBar == txtSearch {
             let storyBoard = UIStoryboard(name: "SearchProductView", bundle: nil)
@@ -66,6 +72,7 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
+    //MARK: Function buttons, icons and interaction user
     @IBAction func btnBackAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

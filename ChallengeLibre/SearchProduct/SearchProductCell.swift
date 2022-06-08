@@ -22,17 +22,10 @@ extension SearchProductViewController: UITableViewDelegate, UITableViewDataSourc
         
     }
     
+    ///Search product selected list recent searchs
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if isSearchAgain {
-            
-            self.dismiss(animated: false)
-            
-        }else {
-            
-            self.searchProduct(product: recentSearchsArray[indexPath.row])
-            
-        }
+   
+        self.searchProduct(product: recentSearchsArray[indexPath.row])
         
     }
     

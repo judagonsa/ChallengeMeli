@@ -9,7 +9,7 @@ import UIKit
 
 class SearchProductViewController: UIViewController, UISearchBarDelegate, UITextViewDelegate {
     
-    //Components search view
+    //MARK: IBOutlet view
     @IBOutlet weak var txtSearch: UISearchBar!
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var iconShoppingCar: UIButton!
@@ -25,6 +25,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
     var recentSearchsArray = [String]()
     var arrayFilter = [String]()
     
+    //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +33,8 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         
     }
     
+    //MARK: ViewWillAppear
+    ///show and hidding components for user interaction
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -68,7 +71,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         txtSearch.delegate = self
         
     }
-    
+    //MARK: Functions searchText
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if searchBar == txtSearch {
             
@@ -92,6 +95,8 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         }
     }
     
+    //MARK: Filter recentSearch
+    ///Filter table recent search
     func filterRecentSearch(product: String) {
         if txtSearch.text != "" {
             recentSearchsArray = recentSearchsArray.filter { $0.contains(product) }
@@ -103,6 +108,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         tableViewRecentSearchs.reloadData()
     }
     
+    /// get recent search from userdefaulst
     func getRecentSearch() {
         if let array = UserDefaults.standard.object(forKey: "recentSearch") as? [String] {
             
@@ -112,6 +118,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         }
     }
     
+    //MARK: Search Product Clicked
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar == txtSearch {
             print("dio en buscar: \(txtSearch.text!)")
@@ -121,6 +128,9 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         }
     }
     
+    
+    /// Search product, when user clicked SEARCH for show list products
+    /// - Parameter product: text product to search and send to list products view for request GET
     func searchProduct(product: String) {
         
         if !recentSearchsArray.contains(product) {
@@ -142,6 +152,8 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         }
     }
     
+    //MARK: viewWillDisappear
+    ///Function dismiss search view and show list products when this show in list products or detail product view
     override func viewWillDisappear(_ animated: Bool) {
         if self.isBeingDismissed {
             if isSearchAgain {
@@ -156,6 +168,8 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         }
     }
     
+    //MARK: Actions buttons, icons
+    ///Show, hidden or dismiss view or components for interaction user
     @IBAction func btnCancelarAction(_ sender: Any) {
         
         if isSearchAgain {
