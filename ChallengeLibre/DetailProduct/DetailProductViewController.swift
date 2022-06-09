@@ -124,7 +124,13 @@ class DetailProductViewController: UIViewController {
                 
                 labelOriginalPrice.text = "$ \(detailProduct.price!)"
                 labelPrice.text = "$ \(detailProduct.prices!.prices![1].amount!)"
-                labelDiscountPrice.text = "\(detailProduct.prices!.prices![1].metadata!.campaignDiscountPercentage!)% OFF"
+                if detailProduct.prices!.prices![1].metadata != nil {
+                    labelDiscountPrice.isHidden = false
+                    labelDiscountPrice.text = "\(detailProduct.prices!.prices![1].metadata!.campaignDiscountPercentage!)% OFF"
+                }else{
+                    labelDiscountPrice.isHidden = true
+                }
+                
                 
             }else {
                 

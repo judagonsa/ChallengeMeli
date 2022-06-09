@@ -42,7 +42,7 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
         viewQuantityResults.isHidden = true
         loadingView.isHidden = false
         
-        listProductsViewModel.getSearchProductTxt(txtProduct: txtSearch.text!.replacingOccurrences(of: " ", with: "-")) { data in
+        listProductsViewModel.getSearchProductTxt(txtProduct: txtSearch.text!) { data in
             
             self.arrayProducts = data
             

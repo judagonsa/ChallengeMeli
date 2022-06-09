@@ -25,7 +25,8 @@ extension SearchProductViewController: UITableViewDelegate, UITableViewDataSourc
     ///Search product selected list recent searchs
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
    
-        self.searchProduct(product: recentSearchsArray[indexPath.row])
+        self.txtSearch.text = recentSearchsArray[indexPath.row]
+        self.searchProduct()
         
     }
     

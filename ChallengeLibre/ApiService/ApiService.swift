@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class ApiService :  NSObject {
     
@@ -15,25 +16,18 @@ class ApiService :  NSObject {
     /// - Parameters:
     ///   - txtProduct: Product to search
     ///   - completion: Response request decode in model
-    func apiGetSearchProduct(txtProduct: String, completion : @escaping (ProductModel.Data) -> ()){
+    func apiGetSearchProduct(txtProduct: String, completion : @escaping (JSON) -> ()){
         
-        let url = URL(string: "https://api.mercadolibre.com/sites/MLA/search?q=\(txtProduct)")!
+        let url = URL(string: "https://api.mercadolibre.com/sites/MLA/search?q=\(txtProduct.replacingOccurrences(of: " ", with: "-"))")!
         
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
         ]
         
         AF.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            print(response)
+            //print(response)
             
-            if let data = response.data {
-                
-                let jsonDecoder = JSONDecoder()
-                
-                let empData = try! jsonDecoder.decode(ProductModel.Data.self, from: data)
-                    completion(empData)
-                
-            } 
+            completion(JSON(response.data!))
             
         }
     }

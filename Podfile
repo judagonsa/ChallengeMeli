@@ -8,7 +8,7 @@ target 'ChallengeLibre' do
   # Pods for ChallengeLibre
 	
 pod 'Alamofire'
-pod 'SwiftJSON'
+pod 'SwiftyJSON'
 
   target 'ChallengeLibreTests' do
     inherit! :search_paths

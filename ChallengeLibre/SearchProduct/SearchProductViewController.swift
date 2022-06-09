@@ -90,16 +90,16 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar == txtSearch {
             print(searchText)
-            filterRecentSearch(product: searchText)
+            filterRecentSearch()
             
         }
     }
     
     //MARK: Filter recentSearch
     ///Filter table recent search
-    func filterRecentSearch(product: String) {
+    func filterRecentSearch() {
         if txtSearch.text != "" {
-            recentSearchsArray = recentSearchsArray.filter { $0.contains(product) }
+            recentSearchsArray = recentSearchsArray.filter { $0.contains(txtSearch.text!) }
         } else {
             print("vacio")
             recentSearchsArray = arrayFilter
@@ -114,7 +114,8 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
             
             self.recentSearchsArray = array
             self.arrayFilter = array
-            filterRecentSearch(product: txtSearch.text!)
+            filterRecentSearch()
+            
         }
     }
     
@@ -123,7 +124,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
         if searchBar == txtSearch {
             print("dio en buscar: \(txtSearch.text!)")
             
-            searchProduct(product: txtSearch.text!)
+            searchProduct()
             
         }
     }
@@ -131,11 +132,11 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
     
     /// Search product, when user clicked SEARCH for show list products
     /// - Parameter product: text product to search and send to list products view for request GET
-    func searchProduct(product: String) {
+    func searchProduct() {
         
-        if !recentSearchsArray.contains(product) {
-            recentSearchsArray.append(product)
-            UserDefaults.standard.set(recentSearchsArray, forKey: "recentSearch")
+        if !arrayFilter.contains(txtSearch.text!) {
+            arrayFilter.append(txtSearch.text!)
+            UserDefaults.standard.set(arrayFilter, forKey: "recentSearch")
         }
         
         if isSearchAgain {
@@ -146,7 +147,7 @@ class SearchProductViewController: UIViewController, UISearchBarDelegate, UIText
             
             let storyBoard = UIStoryboard(name: "ListProductsView", bundle: nil)
             let controller = storyBoard.instantiateViewController(withIdentifier: "ListProductsViewController") as! ListProductsViewController
-            controller.txtTitleSearch = product
+            controller.txtTitleSearch = txtSearch.text!
             self.present(controller, animated: false, completion: nil)
             
         }
