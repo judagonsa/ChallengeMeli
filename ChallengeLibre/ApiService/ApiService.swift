@@ -16,7 +16,7 @@ class ApiService :  NSObject {
     /// - Parameters:
     ///   - txtProduct: Product to search
     ///   - completion: Response request decode in model
-    func apiGetSearchProduct(txtProduct: String, completion : @escaping (JSON) -> ()){
+    func apiGetSearchProduct(txtProduct: String, completion : @escaping (AFDataResponse<Any>) -> ()){
         
         let url = URL(string: "https://api.mercadolibre.com/sites/MLA/search?q=\(txtProduct.replacingOccurrences(of: " ", with: "-"))")!
         
@@ -27,7 +27,7 @@ class ApiService :  NSObject {
         AF.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             //print(response)
             
-            completion(JSON(response.data!))
+            completion(response)
             
         }
     }

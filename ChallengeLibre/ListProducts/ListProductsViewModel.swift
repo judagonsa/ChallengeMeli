@@ -24,7 +24,7 @@ class ListProductsViewModel: NSObject {
     func getSearchProductTxt(txtProduct: String, completion: @escaping ([ProductModel.dataModel]) -> ()) {
         self.apiService.apiGetSearchProduct(txtProduct: txtProduct) { dataProducts in
      
-            let empData = try! JSONDecoder().decode(ProductModel.Data.self, from: dataProducts.rawData())
+            let empData = try! JSONDecoder().decode(ProductModel.Data.self, from: dataProducts.data!)
                 
                 completion(empData.data!)
         }
