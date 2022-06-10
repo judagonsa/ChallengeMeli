@@ -117,7 +117,7 @@ class DetailProductViewController: UIViewController {
         
         if detailProduct.prices != nil {
             
-            if detailProduct.prices!.prices!.count > 1 {
+            if detailProduct.prices!.prices!.count > 2 {
                 
                 viewOriginalPrice.isHidden = false
                 labelDiscountPrice.isHidden = false
