@@ -25,6 +25,7 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
     var txtTitleSearch = ""
     
     //MARK: viewDidLoad
+    ///Request search product opening view, conecting with view model replacing space for - and reload table when finish search
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,12 +34,7 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
         txtSearch.text = txtTitleSearch
         
         loadingView.isHidden = false
-    }
-    
-    //MARK: ViewWillAppear
-    /// Request search product opening view, conecting with view model replacing space for - and reload table when finish search
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
         viewQuantityResults.isHidden = true
         loadingView.isHidden = false
         
@@ -57,9 +53,7 @@ class ListProductsViewController: UIViewController, UISearchBarDelegate {
                 self.collectionListProducts.isHidden = false
             })
         }
-        
     }
-    
     
     /// Show search product view for user begin editing field UISearchText
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
